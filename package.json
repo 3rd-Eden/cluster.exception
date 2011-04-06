@@ -1,0 +1,10 @@
+{
+    "name": "cluster.exception"
+  , "version": "0.0.1"
+  , "description": "Exception handling for cluster.js"
+  , "keywords": []
+  , "author": "Arnout Kazemier <info@3rd-Eden.com>"
+  , "dependencies": {}
+  , "main": "index"
+  , "engines": { "node": "0.4.x" }
+}
