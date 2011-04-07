@@ -1,4 +1,3 @@
-
 # cluster.exception
 
   Exception handling for cluster.js
