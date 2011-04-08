@@ -2,9 +2,12 @@
     "name": "cluster.exception"
   , "version": "0.0.1"
   , "description": "Exception handling for cluster.js"
-  , "keywords": []
+  , "keywords": ["cluster", "mail", "exception", "error"]
   , "author": "Arnout Kazemier <info@3rd-Eden.com>"
-  , "dependencies": {}
+  , "dependencies": {
+      "email": "0.2.x"
+    , "jade": "0.10.x"
+  }
   , "main": "index"
   , "engines": { "node": "0.4.x" }
 }
