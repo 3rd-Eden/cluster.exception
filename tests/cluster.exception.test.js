@@ -51,5 +51,19 @@ module.exports = {
       
       history.destroy();
     }, (history.duration * 12) + 100)
+  },
+  
+  'exception constructor': function(){
+      var plugin;
+      try{ plugin = exception() }catch(e){ e.should.be.an.instanceof(Error) }
+      try{ plugin = exception({}) }catch(e){ e.should.be.an.instanceof(Error) }
+      
+      plugin = exception({ to:'info@3rd-Eden.com' });
+      plugin.should.be.an.instanceof(Function);
+  },
+  
+  'exception accessible for workers': function(){
+    var plugin = exception({ to:'info@3rd-Eden.com' });
+    plugin.enableInWorker.should.be.ok
   }
 };
