@@ -1,4 +1,4 @@
 test:
-	expresso -I lib $(TESTFLAGS) tests/*.js
+	expresso -I lib $(TESTFLAGS) tests/*.test.js
 
 .PHONY: test
