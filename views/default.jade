@@ -1,0 +1,73 @@
+html
+  body(style="background:#fff; font: 14px/1.4 'helvetica neue', helvetica, arial, sans-serif; margin:0; padding:100px; color:#222")
+    h1(style="font-size:28px; margin-top:25px") Cluster exception
+    p An uncaught exception occurred in script
+      span(style="font-family: monospace; color:#3B88D8; margin: 0 7px;")= environment.arguments[1]
+      | on
+      span(style="font-family: monospace; color:#3B88D8; margin: 0 7px;")= date
+      | with the message
+      span(style="font-family: monospace; color:#3B88D8; margin-left:7px;")= exception.message || "no message"
+      | .
+    
+    h2(style="font-size:16px; margin-top:20px") Stacktrace
+    pre(style="border:1px solid #eee;padding:10px;min-width:800px;overflow:auto")#{exception.stack}
+    
+    h2(style="font-size:16px; margin-top:20px") Log snapshot
+    - Object.keys(log).forEach(function(key){
+        - if(key && log[key].length){
+            h2(style="font-family: monospace; font-size:14px; color:#3B88D8;")= key
+            pre(style="border:1px solid #eee;padding:10px;min-width:800px;overflow:auto")= log[key]
+        - }
+    - });
+    
+    - var mem = Object.keys(graph).filter(function(v){return v.indexOf('mem_') >= 0 });
+    - if(mem.length){
+      h2(style="font-size:16px; margin-top:20px") Memory history
+      - mem.foreach(function(key){
+          img(src: graph[key], style="margin:0 40px 40px 0; border:1px solid #fafafa")
+      - });
+    -}
+    
+    - var load = Object.keys(graph).filter(function(v){return v.indexOf('load_') >= 0 });
+    - if(load.length){
+      h2(style="font-size:16px; margin-top:20px") Load average history
+      - load.foreach(function(key){
+          img(src: graph[key], style="margin:0 40px 40px 0; border:1px solid #fafafa")
+      - });
+    -}
+    
+    - var cpus = Object.keys(graph).filter(function(v){return v.indexOf('cpu_') >= 0 });
+    - if(cpus.length){
+      h2(style="font-size:16px; margin-top:20px") CPU Cycle history
+      - cpus.foreach(function(key){
+          img(src: graph[key], style="margin:0 40px 40px 0; border:1px solid #fafafa")
+      - });
+    -}
+    
+    h2(style="font-size:16px; margin-top:20px") Operating System
+    - Object.keys(os).forEach(function(key){
+         dl
+          dt(style="font-family: monospace; color:#3B88D8; display:inline-block; width:200px")= key
+          dd(style="display:inline")= os[key]
+    - });
+   
+    h2(style="font-size:16px; margin-top:20px") Library versions
+    - Object.keys(environment.versions).forEach(function(key){
+         dl
+          dt(style="font-family: monospace; color:#3B88D8; display:inline-block; width:200px")= key
+          dd(style="display:inline")= environment.versions[key]
+    - });
+    
+    h2(style="font-size:16px; margin-top:20px") Process identification
+    - ['pid', 'gid', 'uid'].forEach(function(key){
+         dl
+          dt(style="font-family: monospace; color:#3B88D8; display:inline-block; width:200px")= key
+          dd(style="display:inline")= environment[key]
+    - });
+    
+    h2(style="font-size:16px; margin-top:20px") Environment variables
+    - Object.keys(environment.env).forEach(function(key){
+         dl
+          dt(style="font-family: monospace; color:#3B88D8; display:inline-block; width:200px")= key
+          dd(style="display:inline")= environment.env[key]
+    - });
