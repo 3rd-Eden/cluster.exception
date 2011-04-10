@@ -22,16 +22,24 @@ html
     
     - var mem = Object.keys(graph).filter(function(v){return v.indexOf('mem_') >= 0 });
     - if(mem.length){
-      h2(style="font-size:16px; margin-top:20px") Memory history
-      - mem.foreach(function(key){
-          img(src: graph[key], style="margin:0 40px 40px 0; border:1px solid #fafafa")
-      - });
-    -}
+        h2(style="font-size:16px; margin-top:20px") Memory history
+        - mem.forEach(function(key){
+            img(src:graph[key], style="margin:0 40px 40px 0; border:1px solid #fafafa")
+        - });
+    - }
     
     - var load = Object.keys(graph).filter(function(v){return v.indexOf('load_') >= 0 });
     - if(load.length){
-      h2(style="font-size:16px; margin-top:20px") Load average history
-      - load.foreach(function(key){
+        h2(style="font-size:16px; margin-top:20px") Load average history
+        - load.forEach(function(key){
+            img(src: graph[key], style="margin:0 40px 40px 0; border:1px solid #fafafa")
+        - });
+    - }
+    
+    - var cpus = Object.keys(graph).filter(function(v){return v.indexOf('cpu_') >= 0 });
+    - if(cpus.length){
+      h2(style="font-size:16px; margin-top:20px") CPU Cycle history
+      - cpus.forEach(function(key){
           img(src: graph[key], style="margin:0 40px 40px 0; border:1px solid #fafafa")
       - });
     -}
