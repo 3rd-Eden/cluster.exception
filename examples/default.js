@@ -5,13 +5,14 @@ var http = require('http')
 var app = http.createServer(function httpServer(req, res){
   res.writeHead(200);
   res.end("hello world");
+  if(req.url.match('favicon')){
+    console.info('Im a console.info');
+    console.warn('Im a console.warn');
+    console.log('Im a console.log');
+    
+    throw new Error("Omfg, uncaught error");
+  }
 });
-
-setTimeout(function fakeError(){
-  console.log("error?");
-  throw new Error("Omfg, uncaught error");
-  cluster.destroy();
-}, 1000);
 
 cluster = cluster(app)
   .use(cluster.stats())
@@ -19,4 +20,6 @@ cluster = cluster(app)
   .use(cluster.cli())
   .use(cluster.repl(8888))
   .use(exception({to: 'info+cluster.exception@3rd-Eden.com'}))
-  .listen(8080)
+  .listen(8080);
+
+console.log('Staring application');

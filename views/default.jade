@@ -12,6 +12,13 @@ html
     h2(style="font-size:16px; margin-top:20px") Stacktrace
     pre(style="border:1px solid #eee;padding:10px;min-width:800px;overflow:auto")#{exception.stack}
     
+    h2(style="font-size:16px; margin-top:20px") Cluster instance
+    - Object.keys(cluster).forEach(function(key){
+         dl
+          dt(style="font-family: monospace; color:#3B88D8; display:inline-block; width:200px")= key
+          dd(style="display:inline")= cluster[key]
+    - });
+    
     h2(style="font-size:16px; margin-top:20px") Log snapshot
     - Object.keys(log).forEach(function(key){
         - if(key && log[key].length){
