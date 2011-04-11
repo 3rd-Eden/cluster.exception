@@ -55,7 +55,15 @@ Options:
 
 Or check the [examples](https://github.com/3rd-Eden/cluster.exception/tree/master/examples) folder for more examples.
 
+## Templates
+
+-   `basic` This includes the **Stracktrace** and **Cluster instance** information.
+-   `history` This includes the **Stracktrace**, **Cluster instance**, **Log snapshot** and **graphs**.
+-   `default` This includes.. Everything you see in the screenshot below, you can never have to much information.
+
 ## Screenshots
+
+![](http://dl.dropbox.com/u/1381492/shots/screeny-github-cluster-exception.png)
 
 ## Roadmap
 
