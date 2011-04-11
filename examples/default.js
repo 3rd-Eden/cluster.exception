@@ -23,5 +23,3 @@ cluster = cluster(app)
   .use(cluster.repl(8888))
   .use(exception({to: 'info+cluster.exception@3rd-Eden.com'}))
   .listen(8080);
-
-console.log('Starting application');
