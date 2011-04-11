@@ -9,6 +9,8 @@ var app = http.createServer(function httpServer(req, res){
     console.info('Im a console.info');
     console.warn('Im a console.warn');
     console.log('Im a console.log');
+    console.error('Im a console.error');
+    console.info(req);
     
     throw new Error("Omfg, uncaught error");
   }
@@ -22,4 +24,4 @@ cluster = cluster(app)
   .use(exception({to: 'info+cluster.exception@3rd-Eden.com'}))
   .listen(8080);
 
-console.log('Staring application');
+console.log('Starting application');

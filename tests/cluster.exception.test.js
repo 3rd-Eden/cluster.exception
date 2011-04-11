@@ -46,11 +46,11 @@ module.exports = {
         
         Object.keys(result).forEach(function(key){
           if (result[key]) result[key].should.have.string('google');
-        })
+        });
       });
       
       history.destroy();
-    }, (history.duration * 12) + 100)
+    }, (history.duration * 12) + 100);
   },
   
   'exception constructor': function(){
