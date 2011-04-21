@@ -27,6 +27,7 @@ Options:
 
 ## Example
 
+``` js
     var http = require('http')
       , cluster = require('cluster')
       , exception = require('../');
@@ -52,6 +53,7 @@ Options:
       .use(cluster.repl(8888))
       .use(exception({to: 'your-email@ddress.here'}))
       .listen(8080);
+```
 
 Or check the [examples](https://github.com/3rd-Eden/cluster.exception/tree/master/examples) folder for more examples.
 
