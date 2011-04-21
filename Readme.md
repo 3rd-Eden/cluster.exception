@@ -28,31 +28,31 @@ Options:
 ## Example
 
 ``` js
-    var http = require('http')
-      , cluster = require('cluster')
-      , exception = require('../');
-  
-    var app = http.createServer(function httpServer(req, res){
-      res.writeHead(200);
-      res.end("hello world");
-      if(req.url.match('favicon')){
-        console.info('Im a console.info');
-        console.warn('Im a console.warn');
-        console.log('Im a console.log');
-        console.error('Im a console.error');
-        console.info(req);
-    
-        throw new Error("Omfg, uncaught error");
-      }
-    });
+var http = require('http')
+  , cluster = require('cluster')
+  , exception = require('../');
 
-    cluster = cluster(app)
-      .use(cluster.stats())
-      .use(cluster.pidfiles('pids'))
-      .use(cluster.cli())
-      .use(cluster.repl(8888))
-      .use(exception({to: 'your-email@ddress.here'}))
-      .listen(8080);
+var app = http.createServer(function httpServer(req, res){
+  res.writeHead(200);
+  res.end("hello world");
+  if(req.url.match('favicon')){
+    console.info('Im a console.info');
+    console.warn('Im a console.warn');
+    console.log('Im a console.log');
+    console.error('Im a console.error');
+    console.info(req);
+
+    throw new Error("Omfg, uncaught error");
+  }
+});
+
+cluster = cluster(app)
+  .use(cluster.stats())
+  .use(cluster.pidfiles('pids'))
+  .use(cluster.cli())
+  .use(cluster.repl(8888))
+  .use(exception({to: 'your-email@ddress.here'}))
+  .listen(8080);
 ```
 
 Or check the [examples](https://github.com/3rd-Eden/cluster.exception/tree/master/examples) folder for more examples.
