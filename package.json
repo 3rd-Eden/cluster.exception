@@ -1,6 +1,6 @@
 {
     "name": "cluster.exception"
-  , "version": "0.0.1"
+  , "version": "0.0.2"
   , "description": "Exception handling for cluster.js"
   , "keywords": ["cluster", "mail", "exception", "error"]
   , "author": "Arnout Kazemier <info@3rd-Eden.com>"
@@ -8,6 +8,14 @@
       "email": "0.2.x"
     , "jade": "0.10.x"
   }
+  , "devDependencies": {
+      "expresso": ""
+    , "should": ""
+    , "cluster": ""
+  }
   , "main": "index"
-  , "engines": { "node": "0.4.x" }
+  , "respository": {
+      "type": "git"
+    , "url": "https://3rd-Eden@github.com/3rd-Eden/cluster.exception.git"
+  }
 }
