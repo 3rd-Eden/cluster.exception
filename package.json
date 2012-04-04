@@ -1,6 +1,6 @@
 {
     "name": "cluster.exception"
-  , "version": "0.0.2"
+  , "version": "0.0.3"
   , "description": "Exception handling for cluster.js"
   , "keywords": ["cluster", "mail", "exception", "error"]
   , "author": "Arnout Kazemier <info@3rd-Eden.com>"
