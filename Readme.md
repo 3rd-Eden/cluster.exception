@@ -1,5 +1,9 @@
 # cluster.exception
 
+```
+NOTE: This module has been deprecated, please use something else.
+```
+
 Exception notification plugin for Cluster
 
 ## Installation
