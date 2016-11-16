@@ -6,7 +6,7 @@
   , "author": "Arnout Kazemier <info@3rd-Eden.com>"
   , "dependencies": {
       "email": "0.2.x"
-    , "jade": "0.10.x"
+    , "jade": "~1.11.0"
   }
   , "devDependencies": {
       "expresso": ""
